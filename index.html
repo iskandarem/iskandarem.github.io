@@ -2,30 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to My GitHub Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Dev Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      text-align: center;
-      padding: 50px;
-    }
-    h1 {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
       color: #333;
     }
-    p {
-      color: #666;
+    header {
+      background: #222;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
     }
-    a {
-      color: #0366d6;
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    .post {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .post a {
+      color: #007acc;
       text-decoration: none;
+      font-weight: bold;
+    }
+    .post a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9em;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My GitHub Page</h1>
-  <p>This is the homepage for <strong>iskandarem.github.io</strong>.</p>
-  <p><a href="https://github.com/iskandarem">Visit my GitHub profile</a></p>
+
+  <header>
+    <h1>Welcome to My Blog</h1>
+    <p>Thoughts, tutorials, and code snippets.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Latest Posts</h2>
+
+      <!-- Example blog post preview -->
+      <!-- <div class="post">
+        <h3><a href="/blog/first-post.html">How to Build an HTTP Client with Fetch</a></h3>
+        <p>A practical guide to making HTTP requests using fetch(), including GET and POST methods, and token management strategies.</p>
+        <small>Posted on June 28, 2025</small>
+      </div> -->
+
+      <div class="post">
+        <h3><a href="./blogs/jekyll-setup.html">Getting Started with Jekyll on GitHub Pages</a></h3>
+        <p>Learn how to create and deploy your first Jekyll site using GitHub Pages with no server or backend required.</p>
+        <small>Posted on June 15, 2025</small>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Iskandar Emomzoda — Built with Jekyll and ❤️
+  </footer>
 </body>
 </html>
