@@ -1,0 +1,56 @@
+---
+layout: base
+title: Register
+---
+
+<div class="d-flex justify-content-center">
+  <div class="col-md-6 col-lg-5">
+
+    <div class="border rounded-2 p-4 bg-white shadow-sm">
+      <h1 class="h4 mb-4 text-center">Create your account</h1>
+
+      <form id="register-form">
+        <div class="mb-3">
+          <label for="name" class="form-label mb-1">Username</label>
+          <input type="text" class="form-control" id="name" required autocomplete="username">
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label mb-1">Email address</label>
+          <input type="email" class="form-control" id="email" required autocomplete="email">
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label mb-1">Password</label>
+          <input type="password" class="form-control" id="password" required autocomplete="new-password">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Sign up</button>
+      </form>
+    </div>
+
+    <div class="text-center mt-3 small">
+      <p>Already have an account? <a href="/login.html">Sign in</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Simulated register logic
+  document.getElementById('register-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const user = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      avatar: 'https://avatars.githubusercontent.com/u/9919?s=64&v=4' // placeholder
+    };
+
+    if (user.name && user.email && document.getElementById('password').value.length >= 6) {
+      localStorage.setItem('user', JSON.stringify(user));
+      window.location.href = '/';
+    } else {
+      alert('Please fill all fields with valid values.');
+    }
+  });
+</script>
