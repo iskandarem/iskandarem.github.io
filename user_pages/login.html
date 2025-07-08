@@ -11,8 +11,8 @@ title: Login
 
       <form id="login-form">
         <div class="mb-3">
-          <label for="email" class="form-label mb-1">Email address</label>
-          <input type="email" class="form-control" id="email" required autocomplete="email">
+          <label for="username" class="form-label mb-1">Username</label>
+          <input type="text" class="form-control" id="username" required autocomplete="username">
         </div>
 
         <div class="mb-3">
@@ -33,21 +33,29 @@ title: Login
   </div>
 </div>
 
-<script>
-  // Handle login logic
-  document.getElementById('login-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const email = email.value.trim();
-    const password = password.value;
+<script src="/js/api-service.js" type="module"></script>
+<script src="/js/http-client.js" type="module"></script>
+<script src="/js/app.js" type="module"></script>
+<script type="module">
+  import ApiService from '/js/api-service.js';
+  const apiService = new ApiService("http://load-balancer-dev-1327363466.eu-north-1.elb.amazonaws.com/api/accounts");
+  document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    // 🔒 Simulated login for demonstration
-    if (email && password) {
-      localStorage.setItem('user', JSON.stringify({
-        name: 'Demo User',
-        email: email,
-        avatar: 'https://avatars.githubusercontent.com/u/9919?s=64&v=4' // example avatar
-      }));
-      window.location.href = '/';
-    }
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    apiService.login(username, password)
+      .then(response => {
+        if (response.success) {
+          window.location.href = '/';
+        } else {
+          alert(response.message || 'Login failed. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Login error:', error);
+        alert('An error occurred while trying to log in. Please try again later.');
+      });
   });
 </script>
